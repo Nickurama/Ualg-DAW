@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var a = 1042;
 var b = 'apples and oranges';
 var c = 'pineapples';
@@ -75,7 +90,6 @@ var studentLabs = [
         }
     }
 ];
-gradeLabs(studentLabs);
 var studentLabs2 = [
     {
         student: 'Blake',
@@ -96,5 +110,78 @@ var studentLabs2 = [
         }
     }
 ];
-gradeLabs(studentLabs2);
+var ad = function (x, y) {
+    return x + y;
+};
+function doSomething(fn) {
+    console.log(fn.description + " returned " + fn(6));
+}
+var df = (function (someArg) {
+    return someArg % 2 === 0 ? true : false;
+});
+df.description = "Checks if a number is even";
+var Person = (function () {
+    function Person(fstName, lstName) {
+        this.fstName = fstName;
+        this.lstName = lstName;
+        this.fstName = fstName;
+        this.lstName = lstName;
+    }
+    Object.defineProperty(Person.prototype, "fullName", {
+        get: function () {
+            return "".concat(this.fstName, " ").concat(this.lstName);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Person.prototype.describe = function () {
+        return "This is ".concat(this.fstName, " ").concat(this.lstName, ".");
+    };
+    return Person;
+}());
+var Employee = (function (_super) {
+    __extends(Employee, _super);
+    function Employee(fstName, lstName, _company) {
+        var _this = _super.call(this, fstName, lstName) || this;
+        _this._company = _company;
+        _this._company = _company;
+        return _this;
+    }
+    Object.defineProperty(Employee.prototype, "company", {
+        get: function () {
+            return this._company;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Employee.prototype.describe = function () {
+        return _super.prototype.describe.call(this) + " Works at company ".concat(this.company, ".");
+    };
+    return Employee;
+}(Person));
+var empl = new Employee("OwO", "UwU", "OwO Business");
+var Employee2 = (function () {
+    function Employee2(firstName, lastName, jobTitle) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.jobTitle = jobTitle;
+        Employee2._headcount++;
+    }
+    Object.defineProperty(Employee2, "headcount", {
+        get: function () {
+            return Employee2._headcount;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Employee2._headcount = 0;
+    return Employee2;
+}());
+console.log(Employee2.headcount);
+var emp0 = new Employee2("OwO", "UwU", "OwO Entrepreneur");
+console.log(Employee2.headcount);
+var emp1 = new Employee2("QwQ", "UwU", "OwO Entrepreneur");
+console.log(Employee2.headcount);
+var emp2 = new Employee2("pwp", "TwT", "UwU Entrepreneur");
+console.log(Employee2.headcount);
 //# sourceMappingURL=exercises.js.map

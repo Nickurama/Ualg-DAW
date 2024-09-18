@@ -143,7 +143,7 @@ let studentLabs: lab[] = [
 	}
 ];
 
-gradeLabs(studentLabs);
+// gradeLabs(studentLabs);
 
 let studentLabs2 = [
 	{
@@ -165,4 +165,104 @@ let studentLabs2 = [
 		}
 	}
 ];
-gradeLabs(studentLabs2);
+// gradeLabs(studentLabs2);
+
+// Exercise 16
+// add = function (x: string, y: string): number
+// {
+// 	return x.concat(y).length;
+// }
+
+let ad: (a: number, b: number) => number =
+	function (x: number, y: number) {
+	return x + y;
+}
+// ANSWER: the first one assigns a variable "add" to be the function specified
+// the second one declares a variable "ad" to be a function, and assigns it to the function specified
+
+// Exercise 17
+// let promotion: (price: number, discount: number = 0.05) => number;
+
+// Cannot initialize variables in function declaration, only in initialization.
+
+// Exercise 18
+type DescribableFunction = {
+	description: string;
+	(someArg: number): boolean;
+}
+
+function doSomething(fn: DescribableFunction)
+{
+	console.log(fn.description + " returned " + fn(6));
+}
+
+let df: DescribableFunction = (
+	(someArg: number): boolean => {
+		return someArg % 2 === 0 ? true : false;
+	}
+) as DescribableFunction
+df.description = "Checks if a number is even";
+
+// doSomething(df);
+
+// Exercise 19
+class Person {
+	constructor(private fstName: string, private lstName: string) {
+		this.fstName = fstName;
+		this.lstName = lstName;
+	}
+
+	get fullName(): string {
+		return `${this.fstName} ${this.lstName}`;
+	}
+
+	describe(): string {
+		return `This is ${this.fstName} ${this.lstName}.`;
+	}
+}
+
+class Employee extends Person{
+	constructor(fstName: string, lstName: string, private _company: string) {
+		super(fstName, lstName);
+		this._company = _company;
+	}
+
+	get company(): string {
+		return this._company;
+	}
+
+	override describe(): string {
+		return super.describe() + ` Works at company ${this.company}.`;
+	}
+}
+
+let empl: Employee = new Employee("OwO", "UwU", "OwO Business");
+// console.log("full name: " + empl.fullName);
+// console.log("company: " + empl.company);
+// console.log("description: " + empl.describe());
+
+// Exercise 20
+
+class Employee2 {
+	private static _headcount: number = 0;
+	constructor(
+		private firstName: string,
+		private lastName: string,
+		private jobTitle: string)
+	{
+		Employee2._headcount++;
+	}
+
+	static get headcount() {
+		return Employee2._headcount;
+	}
+}
+
+console.log(Employee2.headcount);
+let emp0: Employee2 = new Employee2("OwO", "UwU", "OwO Entrepreneur")
+console.log(Employee2.headcount);
+let emp1: Employee2 = new Employee2("QwQ", "UwU", "OwO Entrepreneur")
+console.log(Employee2.headcount);
+let emp2: Employee2 = new Employee2("pwp", "TwT", "UwU Entrepreneur")
+console.log(Employee2.headcount);
+
