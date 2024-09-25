@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true
+	"target": "ES6", // ES6 for async client; CommonJS for sync server
+    "module": "CommonJS",
+	"outDir": "./out",
+	"rootDir": "./src",
+    // "noImplicitAny": true,
+    // "removeComments": true,
+    // "preserveConstEnums": true,
+    // "sourceMap": true,
+	"strict": true
   },
-  "include" : ["src/**/*"],
-  "exclude" : ["**/*.spec.ts"],
+  // "include" : ["src/**/*"],
+  // "exclude" : ["**/*.spec.ts"],
 }
