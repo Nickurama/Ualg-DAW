@@ -58,4 +58,22 @@
 	(ex9.tsc)
 
 10.
-	
+	R: it will list all the listeners (first, second and third), and then
+	it will initialize the event "event" with the params "1, 2, 3, 4, 5",
+	so it will call all listeners, one without using any parameter, the other
+	using only two parameters, and the last one with all the parameters.
+
+11.
+	R: it would not work because the function must be async, and it must be
+	an await for loop. If it were correct, it would print each chunk of
+	readable data as it's available.
+
+12.
+	(ex12.js)
+
+13.
+	(ex13.ts)
+	async?
+
+14.
+	pergunta?

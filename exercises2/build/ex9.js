@@ -28,7 +28,6 @@ const myAsync = () => __awaiter(void 0, void 0, void 0, function* () {
     let cc = { desc: "", numCalls: 0 };
     const resp1 = yield myFirstPromise(cc);
     const resp2 = yield mySecondPromise(cc);
-    const resp3 = yield mySecondPromise(cc);
     cc.desc = resp1.desc + resp2.desc;
     return cc;
 });
