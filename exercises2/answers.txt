@@ -40,3 +40,22 @@
 	R: it will print "step1 (random number)", then "step2 (random number)"
 	and then "Something went wrong".
 
+6.
+	6.a.
+		(ex6a.js)
+	6.b.
+		(ex6b.js)
+	6.c.
+		(ex6c.js)
+
+7.
+	R: We can conclude that async returns a promise
+
+8.
+	8.a.
+		---
+9.
+	(ex9.tsc)
+
+10.
+	
