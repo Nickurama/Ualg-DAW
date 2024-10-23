@@ -40,6 +40,7 @@ async function getChunks()
 			counter++;
 			console.log("\nchunk: " + counter);
 			// await writeStream.write("\nchunk: " + counter + '\n' + decoder.decode(chunk.value)); // decoder parses buffer to ASCII
+			// write is async
 			await writeStream.write("\nchunk: " + counter + '\n' + decoder.decode(chunk.value)); // decoder parses buffer to ASCII
 			chunk = await reader.read();
 		}
