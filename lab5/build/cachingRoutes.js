@@ -13,17 +13,18 @@ exports.default = (duration) => (req, res, next) => {
     }
     const key = req.originalUrl;
     const cachedResponse = cache.get(key);
-    if (cachedResponse) {
+    if (cachedResponse) { // if is in cache
         console.error(`Cache hit for ${key}`);
         res.send(cachedResponse);
     }
-    else {
-        res.originalSend = res.send;
+    else { // if is not in cache
+        res.originalSend = res.send; // gets the original send function
         res.send = body => {
-            res.originalSend(body);
-            cache.set(key, body, duration);
+            // this is the new send whenever it is ran
+            res.originalSend(body); // executes the original send function
+            cache.set(key, body, duration); // sets the cache when it called
             return res;
         };
-        next();
+        next(); // calls next middleware
     }
 };

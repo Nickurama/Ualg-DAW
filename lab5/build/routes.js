@@ -16,7 +16,7 @@ const externalAPI_1 = require("./externalAPI");
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const cachingRoutes_1 = __importDefault(require("./cachingRoutes"));
-// router.get("/", async (req: Request, res: Response, next: NextFunction) => {
+// router.get("/", (req: Request, res: Response) => {
 // router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 // the cache(10) will return a function
 router.get("/", (0, cachingRoutes_1.default)(10), (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -35,6 +35,7 @@ router.get("/", (0, cachingRoutes_1.default)(10), (req, res, next) => __awaiter(
         next(err);
     }
 }));
+// router.get("/city/:nameCity", (req: Request, res: Response) => {
 router.get("/city/:nameCity", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     // res.send(`users from city ${req.params.nameCity}`);
     try {
@@ -44,7 +45,7 @@ router.get("/city/:nameCity", (req, res, next) => __awaiter(void 0, void 0, void
         res.json(arr);
     }
     catch (err) {
-        next(err); //?
+        next(err);
     }
 }));
 exports.default = router;
