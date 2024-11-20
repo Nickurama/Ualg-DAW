@@ -1,0 +1,28 @@
+[CONTACTS]
+curl ... delete
+
+curl 127.0.0.1:8080/contacts
+curl -d '{"_id":1, "name":"Maria","email:":"maria@ualg.pt"}'
+	-H "Content-Type:application/json"
+	-X POST http://localhost:8080/contacts
+
+curl -d '{"_id": "1", "name": "Maria", "email": "maria@ualg.pt"}' -H "Content-Type: application/json" -X POST http://localhost:8080/contacts
+
+
+-H has to do with headers
+-X is a function?
+(in the "_id": parameter we will use a string)
+-if id is a numeric type it might not delete, we have to use string
+
+
+[EMAIL]
+curl -d '{"to":"ncorreia@ualg.pt","from":"a79858@ualg.pt",subject":"bla","text":"bla bla"}'
+	-H "Content-Type:application/json"
+	-X POST http://localhost:8080/messages
+
+curl -d '{"to": "a79828@ualg.pt", "from": "a79858@ualg.pt", "subject": "owo", "text": "owo uwu owo :3"}' -H "Content-Type: application/json" -X POST http://localhost:8080/messages
+
+
+OBS: por a ouvir na porta 8080
+
+PARA DAR DELETE: mudar de "POST" para "DELETE" e por no final "/contacto_para_apagar"
