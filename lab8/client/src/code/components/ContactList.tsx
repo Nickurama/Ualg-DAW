@@ -22,13 +22,13 @@ const ContactList = ({ state }) => (
       return (
 		<ListItem key={value}>
 		  <ListItemButton onClick={() => state.showContact(value._id, value.name, value.email)}>
+			  <ListItemAvatar>
+				<Avatar>
+				  <Person />
+				</Avatar>
+			  </ListItemAvatar>
+			  <ListItemText primary={ `${value.name}` } />
 		  </ListItemButton>
-          <ListItemAvatar>
-            <Avatar>
-              <Person />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={ `${value.name}` } />
         </ListItem>
       );
     })}
